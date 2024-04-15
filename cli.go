@@ -36,15 +36,16 @@ func NewCLI(loanRepository LoanRepository) *cli {
 
 // DrawMenu draws the menu for the calculator
 func (c *cli) DrawMenu() error {
-	fmt.Println("Simple Daily Interest Loan Calculator")
+	fmt.Println("Simple Daily Interest Loan Calculator 🧮")
 
 	for {
 		fmt.Println()
-		input, err := c.requestString("action", "create, history, export, list, update, delete or exit", true)
+		input, err := c.requestString("Action", "create, history, export, list, update, delete or exit", true)
 		if err != nil {
 			printErr(err)
 			continue
 		}
+		input = strings.ToLower(input)
 
 		switch input {
 		case "create":
@@ -123,7 +124,7 @@ func (c *cli) handleExport() error {
 		return err
 	}
 
-	fmt.Printf("\nExported history for loan (%s) to JSON\n", sprintColoured(loan.LoanDetails.ID, Cyan))
+	fmt.Printf("\nExported history for loan (%s) as JSON\n", sprintColoured(loan.LoanDetails.ID, Cyan))
 
 	data, err := json.MarshalIndent(loan, "", "    ")
 	if err != nil {
