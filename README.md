@@ -39,6 +39,8 @@ From the root, you can choose:
 
 Each of the commands will enter into a sub menu, where a series of inputs will be requested. All inputs are sanitised and validated.
 
+![Demo of the CLI tool in action](https://github.com/taylow/simple-interest-calculator/blob/main/simple-interest-calculator.gif?raw=true)
+
 ## 🧪 Testing & Vetting
 
 To test the tool, simple run `make test`.
