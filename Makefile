@@ -42,6 +42,12 @@ build: test
 install: test
 	go install
 
+## release: create a new release on GitHub
+.PHONY: release
+release: test
+	goreleaser check
+	goreleaser release --clean
+
 ## docker: build project into a docker image and run it in a container
 .PHONY: docker
 docker: docker-build docker-run
